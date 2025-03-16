@@ -1,6 +1,30 @@
 .header {
+    height: 50px;
     flex: 0 0 50px;
-    display: flex;
-    align-items: center;
     background-color: var(--color-light-m);
+}
+.headerContainer {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.userContainer {
+    width: 30px;
+    height: 30px;
+    padding: 3px;
+    border: 1px solid var(--color-dark-s);
+    border-radius: 50%;
+    cursor: pointer;
+}
+.userContainer:hover {
+    background-color: var(--color-dark-m);
+}
+.userContainer:hover .iconUser {
+    fill: var(--color-light-s);
+}
+.iconUser {
+    fill: var(--color-dark-s);
 }

@@ -3,7 +3,11 @@ import cl from './Footer.module.css';
 
 const Footer = () => {
     return (
-        <footer className={cl.footer}>2025</footer>
+        <footer className={cl.footer}>
+            <div className={cl.footerContainer}>
+                2025
+            </div>
+        </footer>
     )
 }
 
