@@ -1,19 +1,14 @@
-import './App.css';
-import Main from './pages/Main';
-// import React from 'react';
+import './styles/App.css';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
+import Main from './components/Main/Main';
 
 function App() {
   return (
     <div className='wrapper'>
-      <header className='header'>
-      </header>
-      <main className='main'>
-        <Main/>
-      </main>
-      <footer className='footer'>
-        <p>create by Alina</p>
-        <p>2025</p>
-      </footer>
+      <Header/>
+      <Main/>
+      <Footer/>
     </div>
   );
 }
