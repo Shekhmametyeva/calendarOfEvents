@@ -1,27 +1,17 @@
 import React, {useEffect, useState} from "react";
 import cl from './Main.module.css';
-import {fetchUser} from '../../API/Services';
+import {getUser} from '../../API/Services';
+import {useFetching} from "../../hooks/useFetching";
 
 const Main = () => {
     const [user, setUser] = useState({});
-
-    const [isLoading, setLoading] = useState(false);
-    const [error, setError] = useState("");
-
-    const getUser = async () => {
-        try {
-            setLoading(true);
-            const user = await fetchUser();
-            setUser(user);
-        } catch (err) {
-            setError(err.message)
-        } finally {
-            setLoading(false);
-        }
-    }
+    const [fetchUser, isLoading, error] = useFetching(async ()=> {
+        const user = await getUser();
+        setUser(user);
+    }, );
 
     useEffect(() => {
-        getUser();
+        fetchUser()
     }, []);
 
     return (
