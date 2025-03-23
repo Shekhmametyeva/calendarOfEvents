@@ -2,9 +2,10 @@ import React from 'react';
 import spriteSvg from "../../../assets/icon/sprite.svg";
 
 const SvgIcon = ({idIcon, classIcon}) => {
+    const hrefIcon = `${spriteSvg}#${idIcon}`;
     return (
         <svg className={classIcon}>
-            <use href={spriteSvg + '#' + idIcon}/>
+            <use href={hrefIcon}/>
         </svg>
     );
 };
