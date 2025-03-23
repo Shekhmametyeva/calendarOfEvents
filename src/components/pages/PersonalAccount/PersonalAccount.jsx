@@ -1,6 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useFetching} from "../../../hooks/useFetching";
-import {getUser} from "../../../API/Services";
+import {getUser} from "../../../API/services";
 import {AuthContext} from "../../../context";
 
 const PersonalAccount = () => {
@@ -29,7 +29,6 @@ const PersonalAccount = () => {
                             <p>tel: {user.phoneNumber}</p>
                         </div>)
                         : (<div>Ожидание...</div>))
-
             }
         </div>
     );

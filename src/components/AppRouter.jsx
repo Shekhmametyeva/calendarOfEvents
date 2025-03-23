@@ -10,21 +10,16 @@ const AppRouter = () => {
     if (isLoadingPage) {
         return <div>Загрузка...</div>
     }
-    console.log(userId);
+
+    const createRoute = (arrRoutes) => {
+        return arrRoutes.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element}/>
+        ));
+    }
 
     return (
-        userId
-        ?
         <Routes>
-            {privateRoutes.map((route) => (
-                <Route key={route.path} path={route.path} element={route.element}/>
-            ))}
-        </Routes>
-        :
-        <Routes>
-            {publicRoutes.map((route) => (
-                <Route key={route.path} path={route.path} element={route.element}/>
-            ))}
+            {userId ? createRoute(privateRoutes) : createRoute(publicRoutes)}
         </Routes>
     );
 };

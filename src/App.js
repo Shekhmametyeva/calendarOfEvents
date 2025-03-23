@@ -5,7 +5,7 @@ import {BrowserRouter} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import AppRouter from "./components/AppRouter";
 import {AuthContext} from "./context";
-import {getUser} from "./API/Services";
+import {getUser} from "./API/services";
 
 function App() {
     const [isLoadingPage, setIsLoadingPage] = useState(true);

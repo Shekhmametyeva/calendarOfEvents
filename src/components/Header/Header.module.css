@@ -12,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
 }
-.userContainer {
+.iconContainer {
     width: 30px;
     height: 30px;
     padding: 3px;
@@ -20,10 +20,10 @@
     border-radius: 50%;
     cursor: pointer;
 }
-.userContainer:hover {
+.iconContainer:hover {
     background-color: var(--color-dark-m);
 }
-.userContainer:hover .icon {
+.iconContainer:hover .icon {
     fill: var(--color-light-s);
 }
 .icon {

@@ -8,19 +8,18 @@ const Header = () => {
     const {userId} = useContext(AuthContext);
     const navigate = useNavigate();
 
+    const createSvgIcon = (pathNavigate, idIcon) => {
+        return (
+            <div className={cl.iconContainer} onClick={() => navigate(pathNavigate, { replace: false })}>
+                <SvgIcon classIcon={cl.icon} idIcon={idIcon}/>
+            </div>)
+    }
+
     return (
         <header className={cl.header}>
             <div className={cl.headerContainer}>
-                {userId && (
-                    <div className={cl.userContainer} onClick={() => navigate('/', { replace: false })}>
-                        <SvgIcon classIcon={cl.icon} idIcon={'home'}/>
-                    </div>)
-                }
-                {userId && (
-                    <div className={cl.userContainer} onClick={() => navigate('personal-account', { replace: false })}>
-                        <SvgIcon classIcon={cl.icon} idIcon={'user'}/>
-                    </div>)
-                }
+                {userId && createSvgIcon('/', 'home')}
+                {userId && createSvgIcon('personal-account', 'user')}
             </div>
         </header>
     )
