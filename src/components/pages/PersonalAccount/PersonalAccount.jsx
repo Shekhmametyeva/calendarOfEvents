@@ -23,10 +23,10 @@ const PersonalAccount = () => {
                     ? <p>Произошла ошибка ({error})</p>
                     : (!isLoading
                         ? (<div>
-                            <p>ФИО {[user.surname, user.name, user.patronymic].join(' ')}</p>
-                            <p>email {user.email}</p>
-                            <p>tel {user.phoneNumber}</p>
-                            <p>bd {user.birthDate}</p>
+                            <h3>{[user.surname, user.name, user.patronymic].join(' ')}</h3>
+                            <p>birth date {user.birthDate.split('-').reverse().join('.')}</p>
+                            <p>email: {user.email}</p>
+                            <p>tel: {user.phoneNumber}</p>
                         </div>)
                         : (<div>Ожидание...</div>))
 

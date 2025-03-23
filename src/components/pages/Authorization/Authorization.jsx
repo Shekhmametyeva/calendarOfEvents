@@ -12,7 +12,7 @@ const Authorization = () => {
     const login = (event) => {
         event.preventDefault();
         // временный хардкод заменяющий авторизацию, получаем ид клиента
-        const userId = '23e3cef7-bc7d-4776-a6a5-dce8024f17e4';
+        const userId = 'dc8205ae-58c6-4f78-9caf-27bd0932922a';
         setUserId(userId);
         localStorage.setItem('auth', userId);
         navigate('/home');
