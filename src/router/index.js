@@ -5,8 +5,8 @@ import Authorization from "../components/pages/Authorization/Authorization";
 import {Navigate} from "react-router-dom";
 
 export const privateRoutes = [
-    {path: '/', element: <Home/>},
-    {path: '/home', element: <Navigate to="/" replace />},
+    {path: '/', element: <Navigate to="/home" replace />},
+    {path: '/home', element: <Home/>},
     {path: '/personal-account', element: <PersonalAccount/>},
     {path: 'error', element: <Error/>},
     {path: '*', element: <Navigate to="/error" replace />},
