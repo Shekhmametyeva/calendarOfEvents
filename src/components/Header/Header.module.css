@@ -7,8 +7,9 @@
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
+    padding: 0 20px;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
 }
 .userContainer {
@@ -22,9 +23,11 @@
 .userContainer:hover {
     background-color: var(--color-dark-m);
 }
-.userContainer:hover .iconUser {
+.userContainer:hover .icon {
     fill: var(--color-light-s);
 }
-.iconUser {
+.icon {
+    width: 100%;
+    height: 100%;
     fill: var(--color-dark-s);
 }
