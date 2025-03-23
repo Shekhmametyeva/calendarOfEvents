@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import cl from './Header.module.css';
 import SvgIcon from "../UI/SvgIcon/SvgIcon";
 import {useNavigate} from "react-router-dom";
@@ -9,8 +9,11 @@ const Header = () => {
     return (
         <header className={cl.header}>
             <div className={cl.headerContainer}>
+                <div className={cl.userContainer} onClick={() => navigate('/', { replace: false })}>
+                    <SvgIcon classIcon={cl.icon} idIcon={'home'}/>
+                </div>
                 <div className={cl.userContainer} onClick={() => navigate('personal-account', { replace: false })}>
-                    <SvgIcon classIcon={cl.iconUser} idIcon={'user'}/>
+                    <SvgIcon classIcon={cl.icon} idIcon={'user'}/>
                 </div>
             </div>
         </header>

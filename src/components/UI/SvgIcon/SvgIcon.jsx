@@ -3,7 +3,7 @@ import spriteSvg from "../../../assets/icon/sprite.svg";
 
 const SvgIcon = ({idIcon, classIcon}) => {
     return (
-        <svg className={classIcon} width='100%' height='100%'>
+        <svg className={classIcon}>
             <use href={spriteSvg + '#' + idIcon}/>
         </svg>
     );
