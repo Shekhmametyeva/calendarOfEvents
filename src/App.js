@@ -5,21 +5,32 @@ import {BrowserRouter} from "react-router-dom";
 import React, {useEffect, useState} from "react";
 import AppRouter from "./components/AppRouter";
 import {AuthContext} from "./context";
+import {getUser} from "./API/Services";
 
 function App() {
-    const [isAuth, setIsAuth] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoadingPage, setIsLoadingPage] = useState(true);
+    const [userId, setUserId] = useState(localStorage.getItem('auth'));
+
+    const getUserId = async () => {
+        try {
+            await getUser(userId);
+            setUserId(userId);
+        } catch (error) {
+            console.log(error);
+            setUserId('');
+            localStorage.removeItem('auth');
+        }
+    }
 
     useEffect(() => {
-        if(localStorage.getItem('auth')) {
-            setIsAuth(true);
-            setIsLoading(false);
+        if(userId) {
+            getUserId();
         }
-        setIsLoading(false);
+        setIsLoadingPage(false);
     }, []);
 
     return (
-        <AuthContext.Provider value={{isAuth, setIsAuth, isLoading}}>
+        <AuthContext.Provider value={{userId, setUserId, isLoadingPage, setIsLoadingPage}}>
             <div className='wrapper'>
                 <BrowserRouter>
                     <Header/>

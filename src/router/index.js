@@ -9,7 +9,7 @@ export const privateRoutes = [
     {path: '/home', element: <Home/>},
     {path: '/personal-account', element: <PersonalAccount/>},
     {path: 'error', element: <Error/>},
-    {path: '*', element: <Navigate to="/error" replace />},
+    {path: '*', element: <Navigate to="/home" replace />},
 ];
 
 export const publicRoutes = [

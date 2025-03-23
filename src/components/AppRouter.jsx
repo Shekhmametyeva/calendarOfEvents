@@ -5,14 +5,15 @@ import {AuthContext} from "../context";
 
 
 const AppRouter = () => {
-    const {isAuth, isLoading} = useContext(AuthContext);
+    const {userId, isLoadingPage} = useContext(AuthContext);
 
-    if (isLoading) {
+    if (isLoadingPage) {
         return <div>Загрузка...</div>
     }
+    console.log(userId);
 
     return (
-        isAuth
+        userId
         ?
         <Routes>
             {privateRoutes.map((route) => (

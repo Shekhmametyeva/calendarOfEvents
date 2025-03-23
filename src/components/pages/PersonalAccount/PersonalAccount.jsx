@@ -1,16 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useFetching} from "../../../hooks/useFetching";
 import {getUser} from "../../../API/Services";
+import {AuthContext} from "../../../context";
 
 const PersonalAccount = () => {
+    const {userId} = useContext(AuthContext);
     const [user, setUser] = useState({});
-    const [fetchUser, isLoading, error] = useFetching(async ()=> {
-        const user = await getUser();
+    const [fetchUser, isLoading, error] = useFetching(userId,async (userId)=> {
+        const user = await getUser(userId);
         setUser(user);
     }, );
 
     useEffect(() => {
-        fetchUser()
+        fetchUser(userId);
     }, []);
 
     return (
