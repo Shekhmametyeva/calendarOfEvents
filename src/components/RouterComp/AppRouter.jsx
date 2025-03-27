@@ -1,11 +1,13 @@
 import React, {useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
-import {privateRoutes, publicRoutes} from "../router";
-import {AuthContext} from "../context";
+import {AuthContext} from "../../context";
+import Authorization from "../pages/Authorization/Authorization";
+import {privateRoutes} from "../../router/";
+import PrivateRoute from "./PrivateRoute";
 
 
 const AppRouter = () => {
-    const {userId, isLoadingPage} = useContext(AuthContext);
+    const {isLoadingPage} = useContext(AuthContext);
 
     if (isLoadingPage) {
         return <div>Загрузка...</div>
@@ -19,7 +21,10 @@ const AppRouter = () => {
 
     return (
         <Routes>
-            {userId ? createRoute(privateRoutes) : createRoute(publicRoutes)}
+            <Route path='/authorization' element={<Authorization/>}/>
+            <Route element={<PrivateRoute/>}>
+                {createRoute(privateRoutes)}
+            </Route>
         </Routes>
     );
 };
