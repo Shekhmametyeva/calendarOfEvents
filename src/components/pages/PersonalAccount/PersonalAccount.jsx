@@ -1,13 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {useFetching} from "../../../hooks/useFetching";
-import {getUser} from "../../../API/services";
+import UserApi from "../../../API/services";
 import {AuthContext} from "../../../context";
 
 const PersonalAccount = () => {
     const {userId} = useContext(AuthContext);
     const [user, setUser] = useState({});
     const [fetchUser, isLoading, error] = useFetching(userId,async (userId)=> {
-        const user = await getUser(userId);
+        // const user = await getUser(userId);
+        const user = await UserApi.getUser(userId);
         setUser(user);
     }, );
 
@@ -23,8 +24,8 @@ const PersonalAccount = () => {
                     ? <p>Произошла ошибка ({error})</p>
                     : (!isLoading
                         ? (<div>
-                            <h3>{[user.surname, user.name, user.patronymic].join(' ')}</h3>
-                            <p>birth date {user.birthDate.split('-').reverse().join('.')}</p>
+                            <h3>{user.fullName}</h3>
+                            <p>birthDate {user.birthDate}</p>
                             <p>email: {user.email}</p>
                             <p>tel: {user.phoneNumber}</p>
                         </div>)

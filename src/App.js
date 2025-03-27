@@ -2,32 +2,13 @@ import './styles/App.css';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import {BrowserRouter} from "react-router-dom";
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import AppRouter from "./components/AppRouter";
 import {AuthContext} from "./context";
-import {getUser} from "./API/services";
 
 function App() {
-    const [isLoadingPage, setIsLoadingPage] = useState(true);
-    const [userId, setUserId] = useState(localStorage.getItem('auth'));
-
-    const getUserId = async () => {
-        try {
-            await getUser(userId);
-            setUserId(userId);
-        } catch (error) {
-            console.log(error);
-            setUserId('');
-            localStorage.removeItem('auth');
-        }
-    }
-
-    useEffect(() => {
-        if(userId) {
-            getUserId();
-        }
-        setIsLoadingPage(false);
-    }, []);
+    const [isLoadingPage, setIsLoadingPage] = useState(false);
+    const [userId, setUserId] = useState(localStorage.getItem("auth"));
 
     return (
         <AuthContext.Provider value={{userId, setUserId, isLoadingPage, setIsLoadingPage}}>
