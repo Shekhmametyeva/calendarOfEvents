@@ -1,0 +1,15 @@
+.footer {
+    flex: 0 0 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-light-l);
+}
+.footerContainer {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
