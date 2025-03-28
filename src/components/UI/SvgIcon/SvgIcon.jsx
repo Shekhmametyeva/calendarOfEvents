@@ -1,5 +1,5 @@
 import React from 'react';
-import spriteSvg from "../../../assets/icon/sprite.svg";
+import spriteSvg from "assets/icon/sprite.svg";
 
 const SvgIcon = ({idIcon, classIcon}) => {
     const hrefIcon = `${spriteSvg}#${idIcon}`;

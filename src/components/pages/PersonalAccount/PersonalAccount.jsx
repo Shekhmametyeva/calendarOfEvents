@@ -1,16 +1,16 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {useFetching} from "../../../hooks/useFetching";
-import UserApi from "../../../API/services";
-import {AuthContext} from "../../../context";
+import {useFetching} from "hooks/useFetching";
+import UserApi from "API/services";
+import {AuthContext} from "context";
 
 const PersonalAccount = () => {
     const {userId} = useContext(AuthContext);
     const [user, setUser] = useState({});
-    const [fetchUser, isLoading, error] = useFetching(userId,async (userId)=> {
+    const [fetchUser, isLoading, error] = useFetching(async (...args)=> {
         // const user = await getUser(userId);
-        const user = await UserApi.getUser(userId);
+        const user = await UserApi.getUser(...args);
         setUser(user);
-    }, );
+    });
 
     useEffect(() => {
         fetchUser(userId);
@@ -24,10 +24,10 @@ const PersonalAccount = () => {
                     ? <p>Произошла ошибка ({error})</p>
                     : (!isLoading
                         ? (<div>
-                            <h3>{user.fullName}</h3>
-                            <p>birthDate {user.birthDate}</p>
+                            <h3>{user.getFullName()}</h3>
+                            <p>birthDate {user.getBirthDate()}</p>
                             <p>email: {user.email}</p>
-                            <p>tel: {user.phoneNumber}</p>
+                            <p>tel: {user.getPhoneNumber()}</p>
                         </div>)
                         : (<div>Ожидание...</div>))
             }

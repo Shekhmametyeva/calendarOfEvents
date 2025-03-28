@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
-import cl from './Authorization.module.css'
-import Input from "../../UI/Input/Input";
-import Button from "../../UI/Button/Button";
-import {AuthContext} from "../../../context";
 import {useLocation, useNavigate} from "react-router-dom";
+import {AuthContext} from "context";
+import cl from 'components/pages/Authorization/Authorization.module.css'
+import Input from "components/UI/Input/Input";
+import Button from "components/UI/Button/Button";
 
 const Authorization = () => {
     const {setUserId} = useContext(AuthContext);

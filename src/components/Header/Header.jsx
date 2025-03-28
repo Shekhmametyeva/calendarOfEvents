@@ -1,8 +1,8 @@
 import React, {useContext} from "react";
-import cl from './Header.module.css';
-import SvgIcon from "../UI/SvgIcon/SvgIcon";
 import {useNavigate} from "react-router-dom";
-import {AuthContext} from "../../context";
+import cl from 'components/Header/Header.module.css';
+import SvgIcon from "components/UI/SvgIcon/SvgIcon";
+import {AuthContext} from "context";
 
 const Header = () => {
     const {userId} = useContext(AuthContext);

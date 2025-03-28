@@ -1,9 +1,9 @@
 import React, {useContext} from 'react';
 import {Route, Routes} from "react-router-dom";
-import {AuthContext} from "../../context";
-import Authorization from "../pages/Authorization/Authorization";
-import {privateRoutes} from "../../router/";
-import PrivateRoute from "./PrivateRoute";
+import {AuthContext} from "context";
+import {privateRoutes} from "router/";
+import Authorization from "components/pages/Authorization/Authorization";
+import PrivateRoute from "components/RouterComp/PrivateRoute";
 
 
 const AppRouter = () => {

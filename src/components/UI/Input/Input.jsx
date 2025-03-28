@@ -1,5 +1,5 @@
 import React from 'react';
-import cl from './Inpute.module.css'
+import cl from 'components/UI/Input/Inpute.module.css'
 
 const Input = (props) => {
     return (

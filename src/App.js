@@ -1,10 +1,11 @@
-import './styles/App.css';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import {BrowserRouter} from "react-router-dom";
 import React, {useState} from "react";
-import AppRouter from "./components/RouterComp/AppRouter";
+import {BrowserRouter} from "react-router-dom";
 import {AuthContext} from "./context";
+import 'styles/App.css';
+import Header from 'components/Header/Header';
+import Footer from 'components/Footer/Footer';
+import AppRouter from "./components/RouterComp/AppRouter";
+
 
 function App() {
     const [isLoadingPage, setIsLoadingPage] = useState(false);
